@@ -21,23 +21,60 @@ export default function Page() {
     setInputText(e.target.value); // Update state when typing
   };
 
+    const playSubmissionSound = () => {
+      // implement rawr sound
+    }
+
   useEffect (() => {
   }, [isSubmit])
 
   return (
     <div>
+      <>
+      {user && (user.uid !== "1xHsl7Be3cdKmDx2raPoP3nnCQF2") && (
+      <>
+        <p>The gate remains locked!</p>
+        <Image
+        src='/assets/elenapic2.jpg'
+        alt='aaaaaa'
+        width={300}
+        height={200}
+        />        
+        <p>Only ELENA has power here!</p>
+      </>
+      )}
+      </>
 
-
-      <p>
+      <>
         {user ? (
+        <>
           <button onClick={googleSignOut}>Sign Out</button>
+        </>
         ) : (
+        <>
+          <p>The gate is locked...</p>
+          <Image
+          src='/assets/elenapic2.jpg'
+          alt='aaaaaa'
+          width={300}
+          height={200}
+          />
           <button onClick={googleSignIn}>Sign In</button>
+        </>
         )}
-      </p>
+      </>
+
       {user && (user.uid == "1xHsl7Be3cdKmDx2raPoP3nnCQF2") && (
       <>
-        <h1>Text Entry Example</h1>
+        <p>The gate has been unlocked!</p>
+        <Image
+          src='/assets/elenapic2.jpg'
+          alt='Author picture'
+          width={300}
+          height={200}
+          />
+          
+        <h1>Update your collection, girl!</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -50,17 +87,7 @@ export default function Page() {
             {/* {user.displayName} */}
             {/* {user.email} */}
             {/* <img src={user.photoURL} alt={user.displayName}/> */}
-       
-       { isSubmit && (
-        <image
-        src='/assets/elenapic2.jpg'
-        alt='Author picture'
-        width={300}
-        height={200}
-        />
-       )}
        </>
-
       )}
     </div>
   );
